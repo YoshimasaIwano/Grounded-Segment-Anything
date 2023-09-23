@@ -134,4 +134,9 @@ outputs/
 
 .idea/
 
+# data
 outputs/
+datasets/
+
+# results
+results/
