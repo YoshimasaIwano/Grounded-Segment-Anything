@@ -108,11 +108,14 @@ def save_mask_data(output_dir, mask_list, box_list, label_list):
 
     mask_img = torch.zeros(mask_list.shape[-2:])
     for idx, mask in enumerate(mask_list):
-        mask_img[mask.cpu().numpy()[0] == True] = value + idx + 1
-    plt.figure(figsize=(10, 10))
-    plt.imshow(mask_img.numpy())
-    plt.axis('off')
-    plt.savefig(os.path.join(output_dir, 'mask.jpg'), bbox_inches="tight", dpi=300, pad_inches=0.0)
+        mask_img[mask.cpu().numpy()[0] == True] = 255
+
+    # Convert torch tensor to numpy array
+    mask_array = mask_img.numpy().astype(np.uint8)
+    
+    # Convert numpy array to PIL Image and save
+    img = Image.fromarray(mask_array)
+    img.save(os.path.join(output_dir, 'mask.jpg'))
 
     json_data = [{
         'value': value,
