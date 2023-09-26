@@ -19,7 +19,6 @@ def evaluate_directory(output_dir, dataset_dir):
             results.append({"image_id": image_id, "accuracy": accuracy, "precision": precision,
                             "recall": recall, "f1": f1})
             print(f"Evaluated image {image_id}: accuracy={accuracy:.4f}, precision={precision:.4f}, recall={recall:.4f}, f1={f1:.4f}")
-        break
     
     return pd.DataFrame(results)
 
