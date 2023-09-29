@@ -140,3 +140,7 @@ datasets/
 
 # results
 results/
+
+# analysis
+analysis/*.csv
+analysis/*.xlsx

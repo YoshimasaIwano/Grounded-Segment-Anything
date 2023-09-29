@@ -2,7 +2,7 @@
 
 for img in datasets/Segmentation/images/valid/*.jpg; do
     # Extract filename without path to use in output
-    filename="segmentation/valid$(basename "$img" .jpg)"
+    filename="segmentation/valid/$(basename "$img" .jpg)"
 
     # Run the python script with current image
     python grounded_sam_demo.py \
